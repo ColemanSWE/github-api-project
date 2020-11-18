@@ -1,9 +1,11 @@
 import './App.css';
+import { URLBar } from './Components/URLBar/URLBar';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <URLBar />
       </header>
     </div>
   );
