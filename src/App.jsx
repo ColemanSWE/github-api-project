@@ -1,5 +1,6 @@
 import './App.css';
 import { URLBar } from './Components/URLBar/URLBar';
+import { Dashboard } from "./Components/Dashboard";
 
 function App() {
   return (
