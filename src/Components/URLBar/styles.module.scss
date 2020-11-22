@@ -2,6 +2,7 @@
   width: 50%;
   position: relative;
   height: 50px;
+  background-color: #f1faee;
 }
 
 .form input {
@@ -9,8 +10,9 @@
   height: 100%;
   padding-top: 10px;
   border: none;
-  color: #595f6e;
+  color: #1d3557;
   outline: none;
+  background-color: #f1faee;
 }
 
 .form label {
@@ -29,7 +31,7 @@
   bottom: 0px;
   height: 100%;
   width: 100%;
-  border-bottom: 3px solid #5fa8d3;
+  border-bottom: 3px solid #e63946;
   transform: translateX(-100%);
 }
 
@@ -44,10 +46,40 @@
 form input:valid + .labelName .contentName {
   transform: translateY(-150%);
   font-size: 14px;
-  color: #5fa8d3;
+  color: #e63946;
 }
 
 .form input:focus + .labelName::after,
 .form input:valid + .labelName::after {
   transform: translateX(0%);
+}
+
+$btnColor: #1d3557;
+
+.submitButton {
+  color: #f1faee;
+  box-sizing: border-box;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $btnColor;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 30px;
+  transition: 220ms all ease-in-out;
+  outline: none;
+
+  &:hover {
+    background-color: scale-color($btnColor, $lightness: +40%);
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
 }

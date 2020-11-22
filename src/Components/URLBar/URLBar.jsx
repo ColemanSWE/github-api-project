@@ -5,13 +5,19 @@ import axios from 'axios'
 export class URLBar extends Component {
     constructor(props) {
         super(props)
-
         this.state = { url: '' }
+        
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
         this.setState({ url: event.target.value })
+    }
+
+    handleSubmit(event) {
+        alert('A URL was submitted: ' + this.state.url);
+        event.preventDefault();
     }
 
     render() {
@@ -21,6 +27,7 @@ export class URLBar extends Component {
                 <label for="name" className={styles.labelName}>
                     <span className={styles.contentName}>Github URL</span>
                 </label>
+                <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
             </div>
         )
     } 
