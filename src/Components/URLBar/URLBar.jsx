@@ -15,8 +15,18 @@ export class URLBar extends Component {
         this.setState({ url: event.target.value })
     }
 
-    handleSubmit(event) {
-        alert('A URL was submitted: ' + this.state.url);
+    handleSubmit = async (event) => {
+        let baseUrl = 'https://api.github.com/users/'
+        let user = this.state.url
+        let requestUrl = baseUrl.concat(user)
+        let request = await axios.get(requestUrl).catch(err => {
+            if (err.response.status === 404) {
+              console.log('404 error')
+            }
+            throw err;
+        })
+        console.log(request)
+        return request
         event.preventDefault();
     }
 
@@ -24,7 +34,7 @@ export class URLBar extends Component {
         return (
             <div className={styles.form}>
                 <input onChange={this.handleChange} value={this.state.url} type="text" name="Github URL" autoComplete="off" />
-                <label for="name" className={styles.labelName}>
+                <label htmlFor="name" className={styles.labelName}>
                     <span className={styles.contentName}>Github URL</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
