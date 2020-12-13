@@ -34,7 +34,7 @@ export class URLBar extends Component {
             <div className={styles.form}>
                 <input onChange={this.handleChange} placeholder=" " value={this.state.url} type="text" name="Github URL" autoComplete="off" />
                 <label htmlFor="name" className={styles.labelName}>
-                    <span className={styles.contentName}>Github URL</span>
+                    <span className={styles.contentName}>Github Username</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
                 <p>{this.state.user}</p>
