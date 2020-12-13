@@ -43,7 +43,7 @@
 }
 
 .form input:focus + .labelName .contentName,
-form input:valid + .labelName .contentName {
+.form input:not(:placeholder-shown) + .labelName .contentName {
   transform: translateY(-150%);
   font-size: 14px;
   color: #e63946;
