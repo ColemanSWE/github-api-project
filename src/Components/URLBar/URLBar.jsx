@@ -5,7 +5,7 @@ import axios from 'axios'
 export class URLBar extends Component {
     constructor(props) {
         super(props)
-        this.state = { url: '', user: null }
+        this.state = { url: '', user: '' }
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +26,7 @@ export class URLBar extends Component {
             throw err;
         })
         console.log(request)
-        this.setState({ user: request.data.id })
+        this.setState({ user: request.data })
     }
 
     render() {
@@ -37,7 +37,7 @@ export class URLBar extends Component {
                     <span className={styles.contentName}>Github Username</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
-                <div className={styles.container}>{this.state.user}</div>
+                <div className={styles.container}>{JSON.stringify(this.state.user)}</div>
             </div>
         )
     } 
