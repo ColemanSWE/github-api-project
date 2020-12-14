@@ -5,7 +5,7 @@ import axios from 'axios'
 export class URLBar extends Component {
     constructor(props) {
         super(props)
-        this.state = { url: '', location: '', stars: '' }
+        this.state = { url: '', location: '', stars: '', imageUrl: '' }
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,9 +27,17 @@ export class URLBar extends Component {
         })
         console.log(request)
         this.setState({ location: request.data.location })
+        this.setState({ imageUrl: request.data.avatar_url })
+
     }
 
     render() {
+        if (this.state.imageUrl !== '') {
+            this.image = <img src={this.state.imageUrl} alt="github avatar" />
+        } else {
+            this.image = <></>
+        }
+
         return (
             <div className={styles.form}>
                 <input onChange={this.handleChange} placeholder=" " value={this.state.url} type="text" name="Github URL" autoComplete="off" />
@@ -37,7 +45,10 @@ export class URLBar extends Component {
                     <span className={styles.contentName}>Github Username</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
-                <div className={styles.container}>{this.state.location}</div>
+                <div className={styles.container}>
+                    {this.image}
+                    {this.state.location}
+                </div>
             </div>
         )
     } 
