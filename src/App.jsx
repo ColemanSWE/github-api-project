@@ -1,5 +1,4 @@
 import './App.css';
-import { Dashboard } from "./Components/Dashboard";
 import { URLBar } from './Components/URLBar/URLBar';
 
 function App() {
