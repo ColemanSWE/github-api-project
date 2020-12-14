@@ -2,9 +2,9 @@
   width: 50%;
   position: absolute;
   height: 50px;
-  background-color: #0E0B16;
+  background-color: #FF3B3F;
   top: 20%;
-  color: #E7DFDD;
+  color: black;
 }
 
 .form input {
@@ -12,9 +12,9 @@
   height: 100%;
   padding-top: 10px;
   border: none;
-  color: #E7DFDD;
+  color: black;
   outline: none;
-  background-color: #0E0B16;
+  background-color: #EFEFEF;
 }
 
 .form label {
@@ -33,7 +33,7 @@
   bottom: 0px;
   height: 100%;
   width: 100%;
-  border-bottom: 3px solid #A239CA;
+  border-bottom: 3px solid #FF3B3F;
   transform: translateX(-100%);
 }
 
@@ -48,7 +48,7 @@
 .form input:not(:placeholder-shown) + .labelName .contentName {
   transform: translateY(-150%);
   font-size: 14px;
-  color: #A239CA;
+  color: #FF3B3F;
 }
 
 .form input:focus + .labelName::after,
@@ -56,10 +56,10 @@
   transform: translateX(0%);
 }
 
-$btnColor: #4717F6;
+$btnColor: #CAEBF2;
 
 .submitButton {
-  color: #E7DFDD;
+  color: black;
   box-sizing: border-box;
   border: none;
   font-family: inherit;
@@ -88,12 +88,12 @@ $btnColor: #4717F6;
 
 .container {
   padding: 10px 10px 10px 10px;
-  word-wrap: break-word;
-  margin-top: 30px;
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
   width: 100%;
   height: 350px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #A239CA;
-  border-radius: 20px 20px;
+  background: $btnColor;
+  box-shadow: 5px 5px 15px rgba(#FF3B3F, .5);
+  border-radius: 10px;
 }
