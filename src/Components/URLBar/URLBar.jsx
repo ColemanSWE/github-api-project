@@ -26,7 +26,7 @@ export class URLBar extends Component {
             throw err;
         })
         console.log(request)
-        this.setState({ user: JSON.stringify(request.data) })
+        this.setState({ user: request.data.id })
     }
 
     render() {
@@ -37,7 +37,7 @@ export class URLBar extends Component {
                     <span className={styles.contentName}>Github Username</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
-                <p>{this.state.user}</p>
+                <div className={styles.container}>{this.state.user}</div>
             </div>
         )
     } 
