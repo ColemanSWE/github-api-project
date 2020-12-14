@@ -26,9 +26,7 @@ export class SummaryCard extends Component {
             throw err;
         })
         console.log(request)
-        this.setState({ location: request.data.location })
-        this.setState({ imageUrl: request.data.avatar_url })
-
+        this.setState({ location: request.data.location, imageUrl: request.data.avatar_url })
     }
 
     render() {
