@@ -1,11 +1,11 @@
 import './App.css';
-import { URLBar } from './Components/URLBar/URLBar';
+import { SummaryCard } from './Components';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <URLBar />
+        <SummaryCard />
       </header>
     </div>
   );

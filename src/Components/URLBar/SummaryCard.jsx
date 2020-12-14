@@ -2,7 +2,7 @@ import { Component } from 'react'
 import styles from './styles.module.scss'
 import axios from 'axios'
 
-export class URLBar extends Component {
+export class SummaryCard extends Component {
     constructor(props) {
         super(props)
         this.state = { url: '', location: '', stars: '', imageUrl: '' }
