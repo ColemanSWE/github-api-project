@@ -5,7 +5,7 @@ This is just for fun and harkens back to old Facebook/Myspace quizzes. :)
 
 ## Setup (Windows)
 
-This setup guide assumes you have yarn installed on your machine.
+This setup guide assumes you have yarn installed on your machine. If you don't have yarn installed you can find instructions [here](https://classic.yarnpkg.com/en/docs/install/#windows-stable).
 
 In the project directory, you can run:
 
