@@ -5,7 +5,7 @@ import axios from 'axios'
 export class SummaryCard extends Component {
     constructor(props) {
         super(props)
-        this.state = { url: '', location: '', stars: '', imageUrl: '' }
+        this.state = { url: '', location: '', followers: '', imageUrl: '', email: '' }
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +26,7 @@ export class SummaryCard extends Component {
             throw err;
         })
         console.log(request)
-        this.setState({ location: request.data.location, imageUrl: request.data.avatar_url })
+        this.setState({ location: request.data.location, imageUrl: request.data.avatar_url, email: request.data.email, followers: request.data.followers })
     }
 
     render() {
@@ -46,6 +46,8 @@ export class SummaryCard extends Component {
                 <div className={styles.container}>
                     {this.image}
                     {this.state.location}
+                    {this.state.email}
+                    {this.state.followers}
                 </div>
             </div>
         )
