@@ -5,19 +5,19 @@ import axios from 'axios'
 export class SummaryCard extends Component {
     constructor(props) {
         super(props)
-        this.state = { url: '', location: '', followers: '', imageUrl: '', email: '' }
+        this.state = { username: '', location: '', followers: '', imageUrl: '' }
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
-        this.setState({ url: event.target.value })
+        this.setState({ username: event.target.value })
     }
 
     handleSubmit = async (event) => {
         let baseUrl = 'https://api.github.com/users/'
-        let user = this.state.url
+        let user = this.state.username
         let requestUrl = baseUrl.concat(user)
         let request = await axios.get(requestUrl).catch(err => {
             if (err.response.status === 404) {
@@ -26,7 +26,7 @@ export class SummaryCard extends Component {
             throw err;
         })
         console.log(request)
-        this.setState({ location: request.data.location, imageUrl: request.data.avatar_url, email: request.data.email, followers: request.data.followers })
+        this.setState({ location:'Location: '.concat(request.data.location), imageUrl: request.data.avatar_url, followers: 'Followers: '.concat(request.data.followers) })
     }
 
     render() {
@@ -38,16 +38,15 @@ export class SummaryCard extends Component {
 
         return (
             <div className={styles.form}>
-                <input onChange={this.handleChange} placeholder=" " value={this.state.url} type="text" name="Github URL" autoComplete="off" />
+                <input onChange={this.handleChange} placeholder=" " value={this.state.username} type="text" name="Github username" autoComplete="off" />
                 <label htmlFor="name" className={styles.labelName}>
                     <span className={styles.contentName}>Github Username</span>
                 </label>
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
                 <div className={styles.container}>
                     {this.image}
-                    {this.state.location}
-                    {this.state.email}
-                    {this.state.followers}
+                    <h1>{this.state.location}</h1>
+                    <h1>{this.state.followers}</h1>
                 </div>
             </div>
         )
