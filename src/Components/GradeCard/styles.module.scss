@@ -1,0 +1,18 @@
+$btnColor: #caebf2;
+
+.container {
+  padding: 20px 20px 20px 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  width: 50%;
+  height: 150px;
+  background: $btnColor;
+  box-shadow: 5px 5px 15px rgba(#ff3b3f, 0.5);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  order: 1;
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+}

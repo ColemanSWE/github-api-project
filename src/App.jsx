@@ -1,11 +1,12 @@
 import './App.css';
-import { SummaryCard } from './Components';
+import { SummaryCard, GradeCard } from './Components';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-container">
         <SummaryCard />
+        <GradeCard />
       </header>
     </div>
   );
