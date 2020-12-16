@@ -3,6 +3,8 @@
 This is a project where you can enter your github username and you will be given a random "grade" on your profile.
 This is just for fun and harkens back to old Facebook/Myspace quizzes. :)
 
+This app was made using react.js
+
 ## Setup (Windows)
 
 This setup guide assumes you have yarn installed on your machine. If you don't have yarn installed you can find instructions [here](https://classic.yarnpkg.com/en/docs/install/#windows-stable).
