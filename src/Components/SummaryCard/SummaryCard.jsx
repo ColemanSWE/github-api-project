@@ -5,7 +5,7 @@ import axios from 'axios'
 export class SummaryCard extends Component {
     constructor(props) {
         super(props)
-        this.state = { username: '', location: '', followers: '', imageUrl: '' }
+        this.state = { username: '', location: '', followers: '', imageUrl: '', rating: '' }
         
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -15,7 +15,8 @@ export class SummaryCard extends Component {
         this.setState({ username: event.target.value })
     }
 
-    handleSubmit = async (event) => {
+    handleSubmit = async () => {
+        let rating = Math.floor((Math.random() * 10) + 1)
         let baseUrl = 'https://api.github.com/users/'
         let user = this.state.username
         let requestUrl = baseUrl.concat(user)
@@ -25,8 +26,20 @@ export class SummaryCard extends Component {
             }
             throw err;
         })
-        console.log(request)
-        this.setState({ location:'Location: '.concat(request.data.location), imageUrl: request.data.avatar_url, followers: 'Followers: '.concat(request.data.followers) })
+        
+        // This makes sure I always get a more than perfect score, everyone else is left to chance. ;)
+        if (request.data.id === 28316585) {
+            this.setState({ rating: 'Profile rating: 100/10'})
+        } else {
+            this.setState({ rating: 'Profile rating: '.concat(rating) })
+        }
+
+        this.setState({ 
+            location:'Location: '.concat(request.data.location), 
+            imageUrl: request.data.avatar_url, 
+            followers: 'Followers: '.concat(request.data.followers), 
+        })
+        console.log(request.data)
     }
 
     render() {
@@ -45,8 +58,11 @@ export class SummaryCard extends Component {
                 <button className={styles.submitButton} onClick={this.handleSubmit}>Submit</button>
                 <div className={styles.container}>
                     {this.image}
-                    <h1>{this.state.location}</h1>
-                    <h1>{this.state.followers}</h1>
+                    <div className={styles.infoContainer}>
+                        <h2>{this.state.location}</h2>
+                        <h2>{this.state.followers}</h2>
+                        <h2>{this.state.rating}</h2>
+                    </div>
                 </div>
             </div>
         )

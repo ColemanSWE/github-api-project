@@ -106,3 +106,11 @@ $btnColor: #caebf2;
     border-radius: 10px;
   }
 }
+
+.infoContainer {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
+  border: ridge;
+}
