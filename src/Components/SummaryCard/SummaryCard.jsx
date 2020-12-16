@@ -11,10 +11,12 @@ export class SummaryCard extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    // Get the value that is typed in the github username field. 
     handleChange(event) {
         this.setState({ username: event.target.value })
     }
 
+    // This function generates a random rating for the user on a scale of 1 to 10 and sets a corresponding comment based on their rating. 
     generateRating() {
         let randomIndex = Math.floor((Math.random() * (Math.floor(2) - Math.ceil(0) + 1)))
         let rating = Math.floor((Math.random() * 10) + 1)
@@ -34,6 +36,7 @@ export class SummaryCard extends Component {
         }
     }
 
+    // Retrieves user info when the submit button is clicked and generates the rating and comment within. 
     handleSubmit = async () => {
         let baseUrl = 'https://api.github.com/users/'
         let user = this.state.username
@@ -61,6 +64,7 @@ export class SummaryCard extends Component {
     }
 
     render() {
+        // Conditional rendering for the user's photo. Maybe not the best way to do this, but it's simple and works for now. 
         if (this.state.imageUrl !== '') {
             this.image = <img src={this.state.imageUrl} alt="github avatar" />
         } else {
