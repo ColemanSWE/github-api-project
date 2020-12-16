@@ -108,9 +108,19 @@ $btnColor: #caebf2;
 }
 
 .infoContainer {
+  margin-left: 20px;
   height: 60%;
   display: flex;
   flex-direction: column;
-  justify-items: left;
-  border: ridge;
+  align-items: flex-start;
+}
+
+.paragraphContainer {
+  position: absolute;
+  bottom: 10px;
+  width: 95%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
